@@ -2,16 +2,22 @@ import React, { useState } from 'react'
 // import Sidebar from './Components/Sidebar/Sidebar'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar/Navbar'
-import { Routes } from 'react-router-dom'
+import Home from './placea/home/Home'
+import Video from './placea/video/Video'
 
 const App = () => {
+
+const [sidebar,setSidebar] = useState(true);
+
   return (
     <div>
-      <Navbar/>
+      <Navbar setSidebar={setSidebar}/>
       <Routes>
-        <Route  path='/' element={<home/>} />
-        <Route path ='/video/:categoryId/:videoId' element={<video/>}/>
+        <Route path='/' element={<Home sidebar={sidebar}/>} />
+        <Route path='/video/:categoryId/:videoId' element={<video/>} />
       </Routes>
+    
+      
     </div>
   )
 }
